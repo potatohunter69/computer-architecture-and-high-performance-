@@ -69,6 +69,9 @@ __global__ void plotHistogramKernel(uchar4 *image, hist_t *histogram, int width,
     }
 }
 
+
+
+
 __global__ void calcHistogramSharedKernel(const uchar4 *image, hist_t *histogram, int width, int height)
 {
     // Define the local histogram vector in shared memory
@@ -101,6 +104,10 @@ __global__ void calcHistogramSharedKernel(const uchar4 *image, hist_t *histogram
         atomicAdd(&histogram[i], histo_local[i]);
     }
 }
+
+
+
+
 
 int main(int argc, char **argv)
 {
